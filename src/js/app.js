@@ -1,3 +1,5 @@
+import  '../css/styles.css'
+
 import {button,header} from './fetchSelector'
 
 button.addEventListener('click',onToggleButtonClick);

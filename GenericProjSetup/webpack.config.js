@@ -16,6 +16,16 @@ module.exports = {
                     'css-loader'
                 ]
             }
+            // {
+            //     test: /\.js$/,
+            //     include: '.\dist',
+            //     use: {
+            //       loader: 'babel-loader',
+            //       options: {
+            //         presets: ['es2015']
+            //       }
+            //     }
+            //   }
         ]
     }
 }

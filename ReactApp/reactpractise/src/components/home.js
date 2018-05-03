@@ -12,7 +12,7 @@ export class Home extends Component {
             this.setState({
                 status : this.state.status + 1
             })
-        }, 2000);
+        }, 1000);
     }
 
 
@@ -44,8 +44,13 @@ export class Home extends Component {
                 <div className="col-12">
                 <div>current status is {this.state.status}</div>
                 </div>
-                <div className="btn btn-danger" onClick={()=>this.props.triggerHello()}>
+                <div className="col-12">
+                <button className="btn btn-danger" onClick={()=>this.props.triggerHello()}>
                     Say Hello
+                </button>
+                <button className="btn btn-warning" onClick={()=>this.props.sendValue("got from home")}>
+                    Send Value
+                </button>
                 </div>
             </div>
         );

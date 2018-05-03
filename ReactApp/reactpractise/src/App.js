@@ -5,8 +5,19 @@ import {SampleHeader} from './components/sampleheader'
 import {Home} from './components/home'
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      headerLinkName : 'Home'
+    }
+  }
   sayHello(){
     alert('Hello!!');
+  }
+  takeValue(val){
+    this.setState({
+      headerLinkName : val
+    })
   }
   render() {
     let user = {
@@ -27,10 +38,11 @@ class App extends Component {
           Bootstrap Button
         </button>
         <div className="row">
-          <SampleHeader headerLinkName = "Home" />
+          <SampleHeader headerLinkName = {this.state.headerLinkName} />
         </div>
         <div className="row">
-          <Home user={user} triggerHello={()=>this.sayHello()}>
+          <Home user={user} triggerHello={()=>this.sayHello()}
+                sendValue={(val)=>this.takeValue(val)}>
           <p>This is home paragrph</p>
           </Home>
         </div>

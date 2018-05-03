@@ -5,17 +5,23 @@ export class Home extends Component {
         super(props);
         this.state={
             age : props.user.age,
-            status:0
+            status:0,
+            inputValue:'Hello'
         }
 
         setInterval(() => {
             this.setState({
                 status : this.state.status + 1
             })
-        }, 1000);
+        }, 10000);
     }
 
-
+    handleOnInputChange(e){
+        
+        this.setState({
+            inputValue: e.target.value
+        })
+    }
 
     handleAge(e){
         this.setState({
@@ -24,6 +30,7 @@ export class Home extends Component {
         console.log(this.state.age);
     }
     render() {
+        
         return (
             <div className="row">
                 <div className="col-12">
@@ -40,6 +47,10 @@ export class Home extends Component {
                     Increase Age
                     </button>
                     {this.props.children}
+                </div>
+                <div className="col-12">
+                <div><input type='text' value={this.state.inputValue} onChange={(event)=>this.handleOnInputChange(event)}/></div>
+                <label>{this.state.inputValue}</label>
                 </div>
                 <div className="col-12">
                 <div>current status is {this.state.status}</div>

@@ -1,7 +1,7 @@
 ModuleLoaders 
 Plugins
-Plyfills
+Polyfills
 Transpilers
 Boilerplates : ionic, create-react-app,create-angular-ionic-app,create-react-ts-app
-ReactJS life cycle book
+ReactJS life cycle hooks
 Unidirectionaldata flow (Flux/Redux/Reflux)

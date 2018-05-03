@@ -6,11 +6,45 @@ import {Home} from './components/home'
 
 class App extends Component {
   constructor(props){
+    console.log('constructor');
     super(props);
     this.state = {
-      headerLinkName : 'Home'
+      headerLinkName : 'Home',
+      showHome:true
     }
   }
+
+  componentWillMount(){
+    console.log('will mount');
+}
+
+componentDidMount(){
+    console.log('did mount');
+}
+
+componentWillReceiveProps(newProps){
+    console.log('receive props');
+    console.log(newProps);
+}
+
+shouldComponentUpdate(props, state){
+    console.log('should update');
+    console.log(props);
+    console.log(state);
+    return true;
+}
+
+componentWillUpdate(){
+    console.log('will update');
+}
+
+componentDidUpdate(){
+    console.log('did update');
+}
+
+componentWillUnmount(){
+    console.log('unmount');
+}
   sayHello(){
     alert('Hello!!');
   }
@@ -19,12 +53,25 @@ class App extends Component {
       headerLinkName : val
     })
   }
+  toggleHomeComponent(){
+    this.setState({
+      showHome : !this.state.showHome
+    })
+  }
   render() {
+    console.log('render');
     let user = {
       nationality:"Indian",
       hobbies:[1,2,3,4,5,6,7,8],
       age:27
     }
+    let home = '';
+        if(this.state.showHome){
+            home = ( <Home user={user} triggerHello={()=>this.sayHello()}
+                    sendValue={(val)=>this.takeValue(val)}>
+                    <p>This is home paragrph</p>
+                    </Home>);
+        }
     return (
       <div className="App">
         <header className="App-header">
@@ -34,17 +81,14 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <button className="btn btn-primary">
-          Bootstrap Button
+        <button className="btn btn-primary" onClick={()=>this.toggleHomeComponent()}>
+          Toggle Home
         </button>
         <div className="row">
           <SampleHeader headerLinkName = {this.state.headerLinkName} />
         </div>
         <div className="row">
-          <Home user={user} triggerHello={()=>this.sayHello()}
-                sendValue={(val)=>this.takeValue(val)}>
-          <p>This is home paragrph</p>
-          </Home>
+         {home}
         </div>
       </div>
     );

@@ -5,10 +5,14 @@ import {SampleHeader} from './components/sampleheader'
 import {Home} from './components/home'
 
 class App extends Component {
+  sayHello(){
+    alert('Hello!!');
+  }
   render() {
     let user = {
       nationality:"Indian",
-      hobbies:[1,2,3,4,5,6,7,8]
+      hobbies:[1,2,3,4,5,6,7,8],
+      age:27
     }
     return (
       <div className="App">
@@ -23,10 +27,12 @@ class App extends Component {
           Bootstrap Button
         </button>
         <div className="row">
-          <SampleHeader />
+          <SampleHeader headerLinkName = "Home" />
         </div>
         <div className="row">
-          <Home user={user}/>
+          <Home user={user} triggerHello={()=>this.sayHello()}>
+          <p>This is home paragrph</p>
+          </Home>
         </div>
       </div>
     );

@@ -15,17 +15,16 @@ module.exports = {
                     'style-loader',
                     'css-loader'
                 ]
-            }
-            // {
-            //     test: /\.js$/,
-            //     include: '.\dist',
-            //     use: {
-            //       loader: 'babel-loader',
-            //       options: {
-            //         presets: ['es2015']
-            //       }
-            //     }
-            //   }
+            },
+            {
+                test: /\.js$/,
+                use: {
+                  loader: 'babel-loader',
+                  options: {
+                    presets: ['es2015']
+                  }
+                }
+              }
         ]
     }
 }

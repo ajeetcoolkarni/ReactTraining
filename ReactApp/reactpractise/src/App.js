@@ -4,6 +4,7 @@ import './App.css';
 import {SampleHeader} from './components/sampleheader'
 import {Home} from './components/home'
 import {Rout} from './components/route'
+import {Api} from './components/api'
 
 class App extends Component {
   constructor(props){
@@ -88,7 +89,10 @@ componentDidUpdate(){
          {home}
         </div>
         <div className="row">
-        <Rout removeHome={(val=>{})}/>
+        <Rout/>
+        </div>
+        <div className="row">
+        <Api name='ajeetcoolkarni'/>
         </div>
       </div>
     );

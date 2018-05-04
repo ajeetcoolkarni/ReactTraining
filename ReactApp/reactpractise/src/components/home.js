@@ -6,10 +6,10 @@ export class Home extends Component {
         this.state={
             age : props.user.age,
             status:0,
-            inputValue:'Hello'
+            inputValue:'Hello',
+            intervalId :0
         }
-
-        setInterval(() => {
+        this.state.intervalId = setInterval(() => {
             this.setState({
                 status : this.state.status + 1
             })
@@ -21,6 +21,11 @@ export class Home extends Component {
         this.setState({
             inputValue: e.target.value
         })
+    }
+
+    componentWillUnmount(){
+        clearInterval(this.state.intervalId);
+        console.log('unmount');
     }
 
     handleAge(e){

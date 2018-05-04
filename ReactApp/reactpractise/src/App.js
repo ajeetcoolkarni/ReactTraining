@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import {SampleHeader} from './components/sampleheader'
 import {Home} from './components/home'
+import {Rout} from './components/route'
 
 class App extends Component {
   constructor(props){
@@ -41,10 +42,6 @@ componentWillUpdate(){
 componentDidUpdate(){
     console.log('did update');
 }
-
-componentWillUnmount(){
-    console.log('unmount');
-}
   sayHello(){
     alert('Hello!!');
   }
@@ -66,12 +63,12 @@ componentWillUnmount(){
       age:27
     }
     let home = '';
-        if(this.state.showHome){
-            home = ( <Home user={user} triggerHello={()=>this.sayHello()}
-                    sendValue={(val)=>this.takeValue(val)}>
-                    <p>This is home paragrph</p>
-                    </Home>);
-        }
+    if(this.state.showHome){
+      home = ( <Home user={user} triggerHello={()=>this.sayHello()}
+              sendValue={(val)=>this.takeValue(val)}>
+              <p>This is home paragrph</p>
+              </Home>);
+  }
     return (
       <div className="App">
         <header className="App-header">
@@ -89,6 +86,9 @@ componentWillUnmount(){
         </div>
         <div className="row">
          {home}
+        </div>
+        <div className="row">
+        <Rout removeHome={(val=>{})}/>
         </div>
       </div>
     );

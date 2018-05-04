@@ -22,7 +22,7 @@ export class Api extends Component {
                 return Promise.reject()
             }
         })
-        .then((data)=>{data.json()})
+        //.then((data)=>{data.json()})
         .then((response) =>{
             debugger;
             this.setState({
